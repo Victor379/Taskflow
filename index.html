@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taskflow — Controle de Tarefas</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fonte elegante do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <main class="container">
+
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="header-top">
+        <h1 class="logo">Taskflow</h1>
+        <div class="date-badge" id="dateBadge"></div>
+      </div>
+      <!-- Contador de tarefas pendentes -->
+      <div class="stats">
+        <span class="stat-number" id="pendingCount">0</span>
+        <span class="stat-label">tarefas pendentes</span>
+      </div>
+    </header>
+
+    <!-- Campo para adicionar tarefa -->
+    <section class="input-section">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Adicionar nova tarefa…"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <button id="addBtn" class="add-btn" title="Adicionar tarefa">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Adicionar</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <nav class="filters" aria-label="Filtrar tarefas">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="pending">Pendentes</button>
+      <button class="filter-btn" data-filter="done">Concluídas</button>
+    </nav>
+
+    <!-- Lista de tarefas -->
+    <section class="list-section">
+      <ul class="task-list" id="taskList" aria-live="polite">
+        <!-- Tarefas injetadas via JS -->
+      </ul>
+
+      <!-- Estado vazio -->
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">✦</div>
+        <p>Nenhuma tarefa aqui ainda.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
